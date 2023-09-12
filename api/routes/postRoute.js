@@ -61,6 +61,20 @@ router.get('/post/:housetype', (req, res) => {
         });
 });
 
+router.get('/post/:uId', (req, res) => {
+    Post.find({ uId: req.params.uId })
+        .then(post => {
+            res.status(200).json({
+                post: post
+            });
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err
+            });
+        });
+});
+
 router.delete('/delete/:id', (req, res) => {
     Post.deleteOne({ _id: req.params.id })
         .then(result => {
