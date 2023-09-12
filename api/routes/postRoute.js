@@ -47,7 +47,7 @@ router.get('/allpost', (req, res) => {
         });
 });
 
-router.get('/post/:housetype', (req, res) => {
+router.get('/userPost/:housetype', (req, res) => {
     Post.find({ housetype: req.params.housetype })
         .then(post => {
             res.status(200).json({
